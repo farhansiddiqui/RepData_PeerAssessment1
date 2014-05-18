@@ -1,5 +1,11 @@
-Reproducible Research - Peer Assignment 1
-=========================================
+# Reproducible Research: Peer Assessment 1
+Set global options for code chunks
+
+```r
+opts_chunk$set(echo = TRUE, results = "show")
+```
+
+## Loading and preprocessing the data
 Load CSV File
 
 ```r
@@ -26,7 +32,10 @@ Make a histogram of the total number of steps taken each day
 hist(dailyactivity$totalsteps, xlab = "Daily Total Steps", main = "")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+
+
+## What is mean total number of steps taken per day?
 
 Calculate and report the mean and median total number of steps taken per day  
 *Calculate mean daily steps
@@ -49,6 +58,8 @@ median(dailyactivity$totals)
 ## [1] 10395
 ```
 
+## What is the average daily activity pattern?
+
 Make a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days   
 *Aggregate activity data by interval
 
@@ -65,7 +76,7 @@ plot(intervalactivity$interval, intervalactivity$meansteps, type = "l", xlab = "
     ylab = "Average steps")
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
 
 Which 5-minute interval, on average across all the days in the data set, contains the maximum number of steps?
 
@@ -98,6 +109,8 @@ print(meanintervalsteps)
 ## [1] 37
 ```
 
+
+## Imputing missing values
 Create a new data set that is equal to the original data set but with the missing data filled in  
 use mean interval steps to fill in missing data into a new imputed activity data set
 
@@ -121,7 +134,7 @@ Make a histogram of the total number of steps taken each day and Calculate and r
 hist(imputeddailyactivity$totalsteps, xlab = "Daily Total Steps", main = "")
 ```
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
 
 *Calculate mean daily steps using imputed daily activity data set
 
@@ -143,11 +156,13 @@ median(imputeddailyactivity$totalsteps)
 ## [1] 10656
 ```
 
+
+## Are there differences in activity patterns between weekdays and weekends?
 Q. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?    
 A. Yes,these values differ from the first part of the assignment. Imputing missing data has an effect of increasing both mean and median daily steps.  
 
 
-Create a new factor variable in the data set with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.  
+Create a new factor variable in the data set with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.  
 
 ```r
 imputedactivity$day <- "weeekday"
@@ -173,5 +188,20 @@ xyplot(meansteps ~ interval | day, data = intervalimputedactivity, layout = c(1,
     2), type = "l")
 ```
 
-![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
+![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20.png) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

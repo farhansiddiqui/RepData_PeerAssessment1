@@ -1,8 +1,8 @@
-Reproducible Research - Peer Assignment 1
-=========================================
-
 # Reproducible Research: Peer Assessment 1
-
+Set global options for code chunks
+```{r}
+opts_chunk$set(echo=TRUE, results = "show")
+```
 ## Loading and preprocessing the data
 Load CSV File
 ```{r}
