@@ -123,3 +123,4 @@ xyplot(meansteps ~ interval | day, data = intervalimputedactivity, layout = c(1,
 
 
 
+
